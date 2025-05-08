@@ -106,10 +106,6 @@ while True:
             break
 
 
-
-
 #me falta:
 # que en el tablero que no aparezcan los barcos se diferencie si hay acierto o no, X o #
-# barcos aleatorios del rival
-# cuando acierto o fallo, simpre me dice que he fallado y seguido lo que es real
 # si acierta que vuelva a tirar el mismo
