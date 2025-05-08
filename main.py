@@ -11,7 +11,8 @@ tablero_jugador_barcos = utils.crear_tablero()  # MOSTRAR BARCOS DEL JUGADOR Y L
 tablero_jugador_disparos = utils.crear_tablero()    # MOSTRAR DISPAROS DEL JUGADOR.
 
 tablero_jugador_barcos= utils.colocar_barcos(tablero_jugador_barcos, vr.barcos_jugador)
-tablero_rival_barcos=utils.colocar_barcos(tablero_rival_barcos, vr.barcos_rival)
+barcos_rival=utils.generar_barcos()
+tablero_rival_barcos=utils.colocar_barcos(tablero_rival_barcos, barcos_rival)
 
 print(" ")
 print(" ")
@@ -44,16 +45,6 @@ print(" ")
 print(tablero_jugador_disparos)
 print(" ")
 print(" ")
-
-#Coloco los barcos que he se han definido
-#barcos_jugador = [[[0,3], [0,4], [0,5],[0,6]], [[4,7], [5,7], [6,7]], [[8,8], [8,9]], [[1,7]]]
-#barcos_rival = [[[0,3], [0,4], [0,5],[0,6]], [[4,7], [5,7], [6,7]], [[8,8], [8,9]], [[1,7]]]
-#barcos_jugador=vr.s_jugador
-#barcos_rival=vr.s_jugador
-#tablero_jugador_barcos= utils.colocar_barcos(tablero_jugador_barcos, vr.barcos_jugador)
-#tablero_rival_barcos=utils.colocar_barcos(tablero_rival_barcos, vr.barcos_rival)
-#print(tablero_jugador_barcos)
-#print(tablero_rival_barcos)
 
 #Bulcle para repartir el turno de juego
 Turno=1

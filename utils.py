@@ -1,12 +1,10 @@
 import numpy as np
+import random
 
 def crear_tablero():
     tablero = np.full((10,10), "_")
     return tablero
 
-
-# barco_1 = [[0,3], [0,4], [0,5], [0,6]]
-# barco_jugador = [[[0,3], [0,4], [0,5], [0,6]], [[4,7], [5,7], [6,7]], [[8,8], [8,9]], [[1,7]]]
 
 def colocar_barcos(tablero, barcos):
     for  i in barcos:
@@ -28,8 +26,6 @@ def disparo(tablero, fila, columna):
     elif tablero[fila,columna] == "#" or tablero[fila, columna] == "X":
         print("Posicion ya seleccionada")
 
-        #disparo()
-    #elif tablero[fila,columna] == "_":
     else:
         tablero[fila,columna] = "#"
         print("FALLASTE")
@@ -39,13 +35,52 @@ def disparo_2(tablero, fila, columna):
     tablero[fila, columna]= "X"
     return tablero
     
-
-
-#A PARTIR DE AQUI ES MIO
-
+#para saber si todavia quedan barcos sin hundir
 def hay_barcos_todavia(tablero):
     for fila in tablero:
         if "O" in fila:
             return True
     return False 
+
+#Crear barcos aleatoriamente
+def generar_barcos():
+    # para evitar solapamientos.
+    tablero = set()
+    # lista vacia para ir alamcenando todos los barcos.
+    barcos = []   
+
+    # Las diferentes esloras de los barcos
+    #eslora = [2, 2, 2, 3, 3, 4] PARA EL DEFINITIVO
+    eslora=[2,1]
+
+    for longitud in eslora:
+        while True:
+            orientacion = random.choice(['horizontal', 'vertical'])
+            
+            if orientacion == 'horizontal':
+                # Se seleccionan coordenadas (x, y):
+                x = random.randint(0, 10 - longitud)  
+                y = random.randint(0, 9)
+                
+                # Verificamos si hay espacio para el barco en el tablero:
+                posiciones = [(x + i, y) for i in range(longitud)]
+
+                if not any(pos in tablero for pos in posiciones):  # Va a cada posicion generada y verifica si esta ya ocupada.
+                    barcos.append(posiciones)  
+                    tablero.update(posiciones) 
+                    break
+            
+            elif orientacion == 'vertical':
+                # Lo mismo pero para vertical
+                x = random.randint(0, 9)
+                y = random.randint(0, 10 - longitud)  
+                
+                posiciones = [(x, y + i) for i in range(longitud)]  
+
+                if not any(pos in tablero for pos in posiciones):  
+                    barcos.append(posiciones)
+                    tablero.update(posiciones)  
+                    break
+    
+    return barcos   
     
