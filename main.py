@@ -13,14 +13,15 @@ tablero_jugador_disparos = utils.crear_tablero()    # MOSTRAR DISPAROS DEL JUGAD
 tablero_jugador_barcos= utils.colocar_barcos(tablero_jugador_barcos, vr.barcos_jugador)
 barcos_rival=utils.generar_barcos()
 tablero_rival_barcos=utils.colocar_barcos(tablero_rival_barcos, barcos_rival)
-
-print(" ")
-print(" ")
+print("")
+print("💥""💥""💥""💥""💥""💥""💥""💥""💥""💥""💥""💥""💥""💥""💥""💥")
+print("🚢""🚢""🚢""🚢""🚢""🚢""🚢""🚢""🚢""🚢""🚢""🚢""🚢""🚢""🚢""🚢")
+print("")
 print("¿Cual es tu nombre?")
 nombre=input ()
 print("Bienvenid@", nombre ,"vas a jugar contra LA MAQUINA,suerte")
 print("Vamos a ver los tableros, primero los tuyos y despues los de LA MAQUINA")
-time.sleep(2)
+time.sleep(3)
 print(" ")
 print("TABLERO DONDE SE MUESTRAN LOS BARCOS DE LA MAQUINA Y LOS DISPAROS DE", nombre)
 print(" ")
@@ -76,6 +77,8 @@ while True:
         if hundido:
             print("")
             print("¡BARCOS HUNDIDOS!!! HAS GANADO", nombre)
+            print("")
+            print("🎉""🎉""🎉""🎉""🎉""🎉""🎉""🎉""🎉""🎉""🎉""🎉""🎉""🎉")
             break
 
     else:
